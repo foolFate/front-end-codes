@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      // let 声明范围是 块作用域( {} if(){} for(){} )
+      // var 声明范围是 函数作用域( function a(){}  当var外部没有函数时,var声明的对象会被当作全局对象的属性 )
+      // var声明的变量会被挂到window(全局对象 globalThis(低版本浏览器没有)， window是它的别名)上 let声明的变量不会
+      // const 声明的范围和let一样
+
+        // window
+        // globalThis
+        console.log(window)
+        console.log(globalThis)
+        console.log(window === globalThis)
+
+        // 如果直接给一个名字赋值，不使用声明，会被加到全局变量上
+        aaa = 123
+
+        console.log(bbb)
+
+        // var 的最外层声明也会被当作全局变量
+        var bbb = 321
+
+        f()
+
+        // 函数声明
+        function f() {
+            // 全局变量
+            ccc = 111
+
+            // 局部变量 - 函数作用域
+            var ddd = 444
+        }
+
+        // 函数定义表达式
+        var f1 = function() {}
+
+        // 匿名函数 - 是函数表达式
+        ;(function () {})
+        // 立即调用函数表达式 - IIFE
+        ;(function () {})()
+        // 箭头函数版本【箭头函数无this】
+        ;(()=>{})()
+
+        // 代码块, 锁不住 var
+        {
+            var eee = 555
+        }
+        console.log(eee)
+
+        for(var i=0; i<10; i++) {}
+        console.log(i)
+
+
+
+        var aa = 1;
+        // let aa = 2; // Identifier 'aa' has already been declared  //let不能重复声明变量
+
+
+    </script>
+</body>
+</html>

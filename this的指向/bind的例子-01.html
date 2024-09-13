@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.development.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.22.17/babel.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/prop-types/15.8.1/prop-types.js"></script>
+</head>
+
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+
+  class App extends React.Component {
+
+    constructor() {
+      super()
+      this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+      console.log(this)
+    }
+
+    // @Override
+    render() {
+      return <div>
+        <button onClick={this.handleClick}>按钮</button>  
+      </div>
+    }
+  }
+
+
+  let rootDOM = document.getElementById("root")
+  let root = ReactDOM.createRoot(rootDOM)
+  root.render(<App/>);
+</script>
+</body>
+</html>

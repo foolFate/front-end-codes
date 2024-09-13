@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="v1" id="v1" />
+    <input type="text" name="v2" id="v2" />
+    <button id="btn">提交</button>
+
+    <script>  
+      function validateForm(rules) {
+        let $v1 = document.querySelector("#v1");
+        let $v2 = document.querySelector("#v2");
+
+        const values = {
+          v1: $v1.value,
+          v2: $v2.value,
+        };
+
+        let allFlag = true;
+
+        Object.keys(rules).forEach((prop) => {
+          let value = values[prop];
+          let validateRules = rules[prop];
+
+          for (validateRule of validateRules) {
+            let result = validateRule.validator(value);
+            if (result) {
+              console.log(`${prop}校验成功`);
+            } else {
+              allFlag = false;
+              console.log(`${prop}校验失败, 错误原因: ${validateRule.message}`);
+            }
+          }
+        });
+
+        return allFlag;
+      }
+
+      const rules = {
+        v1: [
+          { validator: (value) => value > 0, message: "v1需要大于0" },
+          { validator: (value) => value < 100, message: "v1需要小于100" },
+          { validator: (value) => value % 2 == 1, message: "v1需要是奇数" },
+        ],
+        v2: [{ validator: (value) => value < 0, message: "v2需要小于0" }],
+      };
+
+      document.querySelector("#btn").onclick = function () {
+        let result = validateForm(rules);
+        console.log("最终校验结果", result ? "成功" : "失败");
+      };
+    </script>
+  </body>
+</html>

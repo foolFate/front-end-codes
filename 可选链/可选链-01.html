@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            a: 1,
+            b: 2,
+            c: {
+                m: {
+                    x: 123
+                }
+            }
+        }
+
+        console.log(obj.a.x?.y ?? "asdasdasd")
+
+        let data = 0
+
+        // data = data || 3
+        data = data ?? 3
+
+        console.log(data)
+
+        let x = undefined
+        let y = 5
+        x ??= y
+        console.log(x)
+
+        // ...
+    </script>
+</body>
+</html>

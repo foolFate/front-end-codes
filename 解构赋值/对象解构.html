@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            a: 1,
+            b: 2,
+            books: ["红楼梦", "西游记", "三国演义", "水浒传"]
+            // 还有一百个属性
+        }
+
+        let {b: BBBB, a, books: [b1, b2, b3, b4]} = obj
+
+        console.log(a)
+        console.log(BBBB)
+        console.log(b1, b2, b3, b4)
+
+    </script>
+</body>
+</html>

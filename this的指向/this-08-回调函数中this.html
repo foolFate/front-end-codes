@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+</head>
+<body>
+
+  <button id="btn1">按钮</button>
+
+  <script>
+    let $btn1 =  $("#btn1")
+    // $btn1.on("click", function(e){
+    //   console.log(this)   // <button id="btn1">按钮</button>  此时this指向 按钮本身(也是dom对象)
+    //   console.log(e.target)  // 事件对象(xx.的对象) 也是dom对象
+    //   console.log(this === e.target) // true
+    //   console.log($btn1)  //  button按钮的jquery对象 
+    //   console.log(this === $btn1)  // false  此时不相等  按钮 不等于 jquery对象
+    //   console.log($(this))  // 通过 $(this) 把dom对象转为 jquery对象
+    //   console.log($(this) === $btn1) // false 此时 打印出来都为jquery对象(值一致) 但不是同一个对象 所以为 false 
+    //   console.log($(this)[0]) // jquery对象是一个伪数组 通过取数组的第0个对象 取出来的是dom对象 
+    //   console.log($btn1[0])  // 也是 dom对象
+    //   console.log($(this)[0] === $btn1[0]) // true 比较一致
+    // })
+
+
+    // 箭头函数(无this)
+    $btn1.on("click", (e) => {
+      console.log(this)   // 此处this 是上一级的this
+      console.log(e.target)  //  <button id="btn1">按钮</button>
+      console.log(this === e.target) // false
+      console.log($btn1)  //  button按钮的jquery对象 
+      console.log(this === $btn1)  // false  此时不相等  按钮 不等于 jquery对象
+    }) 
+
+  </script>
+  
+</body>
+</html>

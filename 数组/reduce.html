@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      
+      // 多个变一个  
+
+      // (累计器, 当前项, 当前数组) => 累计器的新值
+      let sum = arr.reduce((s, x) => {
+        console.log(`s=${s}, x=${x}`)
+        return s + x
+      }, 10)
+      // console.log(sum)
+
+      // {odd: [], even: []}
+
+      // function 累加函数(累计器, 当前项) {
+      //    if(当前项 %2 === 1){
+      //     累计器.odd.push(当前项)
+      //    }else{
+      //     累计器.even.push(当前项)
+      //    }
+      //    return 累计器
+      // }
+
+      // let result = arr.reduce((res, item) => {
+      //   res[item % 2 === 1 ? 'odd' : 'even'].push(item)
+      //   return res
+      // }, {odd: [], even: []})
+
+      // let result = {
+      //   odd: arr.filter(x => x % 2 === 1),
+      //   even: arr.filter(x => x % 2 === 0)
+      // }
+
+      // 对象[属性名] = 对象.属性名
+      let result = {odd: [], even: []}
+      for(let x of arr) {
+        result[x % 2 === 1 ? 'odd' : 'even'].push(x)
+      }
+      
+      console.log(result)
+
+      let users = [
+        { name: "张三", age: 18 },
+        { name: "李四", age: 19 },
+        { name: "王五", age: 20 },
+        { name: "赵六", age: 21 },
+        { name: "田七", age: 22 },
+        { name: "王五", age: 81 },
+        { name: "88", age: 18 },
+      ];
+      // <=20一组，>20一组
+
+    </script>
+  </body>
+</html>

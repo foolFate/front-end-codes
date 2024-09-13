@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function add(x, y) {
+            return x + y
+        }
+
+        function cache(x, y) {
+            cache.map ??= {}
+            let cacheKey = `${x},${y}`  // 相当于 x + ',' + y
+            if(cacheKey in cache.map) { // 检查属性在不在对象里
+                console.log(cacheKey, "命中缓存", cache.map[cacheKey])
+                return cache.map[cacheKey]
+            } else {
+                cache.map[cacheKey] = add(x, y)
+                console.log(cacheKey, "没有缓存, 计算", cache.map[cacheKey])
+                return cache.map[cacheKey] 
+            }
+        }
+
+        cache(3, 4)
+        cache(3, 4)
+        cache(3, 4)
+        cache(6, 7)
+
+
+    </script>
+</body>
+</html>

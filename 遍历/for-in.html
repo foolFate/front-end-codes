@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let name = "lalala";
+      let s = Symbol(); // 定义一个符号
+
+      // { 键: 值 }
+      let obj = {
+        name: "张三",
+        age: 18,
+        sex: "男",
+        [s]: "asdasd", // 1. 符号键不能被 for in 遍历
+        [name]: "asdasd",
+        [1 + 1]: "2",
+        1: 123123123,
+      };
+
+      // 2. 不可枚举属性，也不能被 for in 遍历 { enumerable: false }
+      Object.defineProperty(obj, "hahaha", { enumerable: false });
+
+      // for(let key in obj) {
+      //   console.log(key)
+      // }
+
+      // JS的数组可以看作一个键是数字的对象
+      let arr = ["a", "b", "c", "d"];
+      console.log(arr);
+
+      arr.xxxxxx = "1231231231";
+      arr.yyyyyy = "asdfasfasf";
+
+      for (let key in arr) {
+        console.log(key);
+      }
+
+      // 一般更常用for in 遍历对象属性(一般不用for in)
+    </script>
+  </body>
+</html>

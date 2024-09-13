@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      // js中 所有奇怪的比较 有颜色为true
+      // https://www.thomas-yang.me/projects/oh-my-dear-js/
+
+      // 除了严格的 === ，但凡有其他 undefined/null 参与的比较，都要小心一点
+
+
+        console.log(undefined == null) // true      == 在比较时会尝试进行类型转换
+        console.log(undefined === null)  // false   === 直接比较类型 (undefined 类型为undefined  null 类型为 object)
+
+        // 有几种出现undefined的情况 (就是各种未定义的返回值)
+        // 1.变量被声明但未被初始化
+        // 2.函数如果没有return 具体的值，那它的返回值为 undefined
+        // 3.函数形参未传实参且未设置默认值时，那么形参的值为 undefined
+        // 4.获取对象上(以及对象原型链上)不存在的属性时 返回 undefined
+        // 5.void() 返回 undefined
+        // 6.对于一个没有声明的变量，对其使用 typeof 返回 undefined
+        console.log(typeof aa)  // undefined
+
+        // 因为 6的缺陷(变量未声明却不报错，返回 undefined)存在，所以推荐所有变量都要初始化，且不推荐初始化为 undefined
+
+        console.log("-------")
+        console.log(null > 0)  // false
+        console.log(null < 0)  // false
+        console.log(null >= 0) // true
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="okBtn">成功</button>
+    <button id="errorBtn">报错</button>
+    <script>
+
+      const okBtn = document.querySelector("#okBtn")
+      const errorBtn = document.querySelector("#errorBtn")
+
+      let p = new Promise((resolve, reject) => {
+        okBtn.onclick = () => resolve("success")
+        errorBtn.onclick = () => {
+          reject("错啦！！！")
+        }
+      });
+
+      // function 回调函数(解决的值) {
+      //   console.log('解决的值', 解决的值)
+      // }
+
+      // p.then(回调函数)
+
+      function 成功的回调(解决的值) {
+        console.log("解决的值", 解决的值);
+      }
+
+      function 错误的回调(错误的内容) {
+        console.log("错误的内容", 错误的内容);
+      }
+
+      // p.then(成功的回调);
+      // p.then(成功的回调, 错误的回调);
+      
+      p.then(成功的回调).catch(错误的回调)
+    </script>
+  </body>
+</html>

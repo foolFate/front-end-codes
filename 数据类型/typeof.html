@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+  // 目前 js 七大基本类型  undefined  null  function  object  bigInt  string  symbol(符号)
+
+  let a = {aa: 11, bb : 22};
+  let b = [1, 2, 3, 4]
+  let c = function (){
+    console.log("我是个函数")
+  }
+  let d = undefined;
+  console.log(typeof a)   // object
+  console.log(typeof b)   // object
+  console.log(typeof c)   // function
+  console.log(typeof d)   // undefined
+  console.log(typeof null)// object  null是空对象引用
+
+  // instanceof  比较对象里的类型  前提是比较对象
+  // console.log([] instanceof Object)
+
+  let obj = {}
+  let A = function() {}
+  A.prototype = {}
+
+  // __proto__ 是一个浏览器私设属性，JS标准没有规定
+
+  // 民间写法
+  // obj.__proto__ = A.prototype
+
+  // 官方写法
+  Object.setPrototypeOf(obj, A.prototype)
+
+  console.log(obj instanceof A)
+
+  // function Person () {}
+  // let p = new Person()
+  // console.log(p instanceof Person)
+
+</script>
+
+</body>
+</html>

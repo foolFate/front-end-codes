@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.myBind = function (target) {
+        let that = this; // this 因为是通过对象方法 fun 调用 所以代指 fun
+        return function() {
+          that.apply(target, arguments);
+        };
+      };
+
+      function fun(x, y) {
+        console.log(x, y, this);
+      }
+
+      let fun1 = fun.myBind({ name: "张三" });
+      let fun2 = fun.myBind({ name: "李四" });
+
+      fun1();
+      let x = { f: fun1 };
+      x.f();
+    </script>
+  </body>
+</html>

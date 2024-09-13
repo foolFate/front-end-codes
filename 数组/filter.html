@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [1, 2, 3, 4, 5]
+
+    let arr2 = arr.filter(x => x % 2 == 1)
+    console.log(arr2)
+
+    let users = [
+      {name: '张三', age: 18},
+      {name: '李四', age: 19},
+      {name: '王五', age: 20},
+      {name: '赵六', age: 21},
+      {name: '田七', age: 22},
+      {name: '王五', age: 81},
+      {name: '88', age: 18},
+    ]
+
+    let usersLt20 = users.filter(u => u.age <= 20 )
+    // let usersLt20 = users.filter(u => false)
+    console.log(usersLt20)
+
+  </script>
+</body>
+</html>

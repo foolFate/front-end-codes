@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // let getById = document.getElementById
+    // document.getById = getById
+    // let h1 = document.getById("title")
+    // console.log(h1)
+
+    // 通过对象方法调用时, this 指向这个对象
+    let obj = {
+      name: '张三',
+      fun: function() {
+        console.log(this)
+      }
+    }
+
+    let f = obj.fun
+
+    // obj.fun()
+    f()
+
+  </script>
+</body>
+</html>

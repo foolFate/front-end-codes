@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 首先，JS早期是单线程的
+      // 其次，JS有异步行为
+      // 结论，JS代码并非直接扔到单线程中执行
+
+      // 那JS代码是如何被浏览器执行的？
+      // 单线程中运行的又是什么？
+      // 单线程中运行的是一个死循环
+
+      // setTimeout(回调, 时间)
+
+      // 任务队列
+      let taskQueue = [];
+
+      while (true) {
+        // 不断地去读取JS代码
+        let task = new Task();
+        // 每读取到一个能执行的语法单元，将其封装为一个任务，塞到任务队列中
+        taskQueue.push(task);
+      }
+
+      // 不断地从 taskQueue 中拿任务执行
+      while (true) {
+        let task = taskQueue.shift() // 从任务中拿一个任务
+
+        // 假设返回一个对象表示产生了其他任务
+        let newTask = task.execute() // 执行任务
+        if(newTask) {
+          taskQueue.push(newTask);
+        }
+      }
+
+      
+    </script>
+  </body>
+</html>

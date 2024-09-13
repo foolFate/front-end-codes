@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    Array.prototype.qiForEach = function(callback) {
+      for(let i=0; i<this.length; i++) {
+        callback(this[i], i, this)
+      }
+    }
+
+    let arr = [1, 2, 3, 4, 5]
+
+    // arr.forEach(遍历函数) // 对数组的每一项都调用这个函数
+
+    // 不建议在 forEach 中，对数组进行增删
+    // arr.forEach(function(当前元素, 当前下标, 数组本身) {
+    //   console.log(当前元素, 当前下标, 数组本身)
+    // })
+
+    let 处理函数 = function(当前元素, 当前下标, 数组本身) {
+      console.log('qiForEach', 当前元素, 当前下标, 数组本身)
+    }
+
+    arr.qiForEach(处理函数)
+
+    // Date.prototype.format = function(formatStr) {}
+
+    // let d = new Date()
+    
+    // formatDate(d, "YYYY-MM-DD")
+    // d.format('YYYY-MM-DD')
+
+  </script>
+</body>
+</html>

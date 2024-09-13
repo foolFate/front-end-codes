@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function add(x, y) {
+        return x + y;
+      }
+
+      // 函数、对象 是JS的一等公民
+
+      function cache(f) {
+        let map = {}
+        
+        function newF() {
+          let cacheKey = [...arguments].join(',')
+          if(cacheKey in map) {
+            console.log(cacheKey, "命中缓存")
+            return map[cacheKey]
+          } else {
+            console.log(cacheKey, "计算")
+            return map[cacheKey] = f(...arguments)
+          }
+        }
+
+        return newF;
+      }
+
+      const cacheAdd = cache(add);
+      cacheAdd(3, 4)
+      cacheAdd(3, 4)
+      cacheAdd(3, 4)
+      cacheAdd(6, 7)
+
+
+    </script>
+  </body>
+</html>

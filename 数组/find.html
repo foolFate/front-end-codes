@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let users = [
+      {name: '张三', age: 18},
+      {name: '李四', age: 18},
+      {name: '王五', age: 18},
+      {name: '赵六', age: 18},
+      {name: '田七', age: 18},
+      {name: '王五', age: 81},
+      {name: '88', age: 18},
+    ]
+
+    // let user = users.find(u => u.name === '王五') // 从前往后找
+    let user = users.findLast(u => u.name === '王五') // 从后往前找
+    console.log(user)
+
+    // let i = users.findIndex(u => u.name === '王五') // 从后往前找
+    // console.log(i)
+
+  </script>
+</body>
+</html>

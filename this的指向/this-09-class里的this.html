@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor() {
+          console.log(this);
+        }
+      }
+
+      class Student extends Person{
+        constructor() {
+          super()
+          console.log(this);
+          console.log(this === Student) // false 非静态方法中 this就是类对象  不相等 
+        }
+
+        static fun1() {
+          console.log(this);
+          console.log(this === Student) // true  静态方法中 this就是类本身 相等
+        }
+
+        fun2() {
+          console.log(this);
+        }
+      }
+
+      let p = new Person();  // 就是 Person {} 的实例对象
+      // 只有构造器中有此限制
+      let s = new Student(); //  Student {} 的实例对象  此处 Student是Person 子类 需要先调用父类构造器(super()) 才能在构造器中使用this
+      // s.fun1()  // js中 对象不能调用静态方法 报错
+      Student.fun1() //  Student {} 这个类本身
+      
+      s.fun2()  // Student {} 类的实例对象
+    </script>
+  </body>
+</html>

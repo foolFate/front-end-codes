@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fun(x, y) {
+      console.log(x, y, this)
+    }
+
+    let obj1 = {name: "张三"}
+    let obj2 = {name: "李四"}
+
+    let fun1 = fun.bind(obj1)
+    let fun2 = fun.bind(obj2)
+    fun1(1, 2) // 此处 被bind绑定(fun.bind(obj1)) 所以this 为 obj1  打印结果为 1 2 {name: '张三'}
+    let x = {f: fun1}
+    x.f(3, 4)  // 一般情况 通过对象调用函数 函数中的this 为该对象  但如果通过bind绑定后 此时的this还是 之前绑定的对象 obj1
+    new fun1(5, 6)  //  5, 6  fun()
+
+  </script>
+</body>
+</html>

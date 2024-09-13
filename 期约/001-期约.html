@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+        期约：指约定共同信守的事项
+        自约定起，期约具有三种状态：-pending、解决-resolve、拒绝-reject
+
+        new Promise -> pending 待定
+        调用 resolve -> fulfilled 解决
+        调用 reject -> rejected 拒绝
+
+        pending -> .... -> pending
+        pending -> fulfilled
+        pending -> rejected
+    */
+
+    // 创建一个 Promise
+    let p = new Promise(function(resolve, reject) {
+      // 期约的内容
+      console.log("hello world")
+      resolve()
+      console.log("你好")
+    });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 3;
+        a = 4;
+
+        const b = 3; // 定义变量必须同时初始化(和let区别)
+        // b = 4;  // Assignment to constant variable  const 修饰的常变量不允许重新赋值(和let区别)
+
+        const obj = {}
+        // 给对象的属性赋值 != 给对象赋值
+        obj.x = 123
+
+        // for(const i=0; i<10; i++) {
+        //     console.log(i)
+        // }
+
+        let arr = [1, 2, 3, 4, 5]
+
+        // 对象.属性 = 值
+
+        arr.asdasdasda = 123123
+        console.log(arr)
+        Object.defineProperty(arr, 'xxx', {
+            value: 999,
+            enumerable: true
+        })
+
+        // Object.defineProperty
+
+        // 可以 
+        // for-in 是遍历可枚举属性
+        for(const x in arr) {
+            console.log(x)
+        }
+
+        // 可以
+        // for(const x of arr) {
+        //     console.log(x)
+        // }
+
+    </script>
+</body>
+</html>

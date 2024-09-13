@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [1, 2, 3]
+
+    let arr1 = arr.map(x =>  {
+      return '【' + x + '】'
+    })
+
+    console.log(arr1)
+
+    let obj = {
+      e: 4,
+      c: 3,
+      a: 1, 
+      b: 2,
+      d: 5,
+    }
+
+    console.log(obj)
+
+    // console.log(Object.entries(obj))
+
+    let obj2 = Object.entries(obj) // [ ['a', 1], ['b', 2] ]
+    .sort((o1, o2) => o1[1] - o2[1])
+    .reduce((res, [k, v]) => {
+      res[k] = v
+      return res
+    }, {})
+
+    // let objArr = Object.values(obj)
+
+
+  </script>
+</body>
+</html>

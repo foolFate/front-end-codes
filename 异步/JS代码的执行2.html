@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 任务队列
+      let taskQueue = [];
+      let vipTaskQueue = [];
+
+      while (true) {
+        // 不断地去读取JS代码
+        let task = new Task();
+        // 每读取到一个能执行的语法单元，将其封装为一个任务，塞到任务队列中
+        if (task.isVip) {
+          vipTaskQueue.push(task);
+        } else {
+          taskQueue.push(task);
+        }
+      }
+
+      // 不断地从 taskQueue 中拿任务执行
+      while (true) {
+        // 在执行下一个普通任务之前，一定要保证所有的VIP任务都已执行
+        while (!vipTaskQueue.isEmpty()) {
+          let vipTask = vipTaskQueue.shift();
+          let newTask = vipTask.execute();
+          if (newTask) {
+            taskQueue.push(newTask);
+          }
+        }
+
+        let task = taskQueue.shift(); // 从任务中拿一个任务
+
+        // 假设返回一个对象表示产生了其他任务
+        let newTask = task.execute(); // 执行任务
+        if (newTask) {
+          taskQueue.push(newTask);
+        }
+      }
+    </script>
+  </body>
+</html>

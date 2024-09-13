@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button></button>
+  <button></button>
+  <button></button>
+  <button></button>
+  <button></button>
+  <button></button>
+
+  <script>
+    let arr = ['a', 'b', 'c', 'd']
+
+    arr.xxx = 'asdasdasd'
+
+    for(let x of arr) {
+      console.log(x)
+    }
+
+    let obj = {
+      *[Symbol.iterator]() {
+
+      }
+    }
+
+    for(let x of obj) {
+      console.log(x)
+    }
+
+    // arr.forEach()
+
+    let btns = document.getElementsByTagName('button');
+
+    // [...btns].forEach((btn) => {
+    //   console.log(btn)
+    // })
+
+    for(let btn of btns) {
+      console.log(btn)
+    }
+
+  </script>
+</body>
+</html>

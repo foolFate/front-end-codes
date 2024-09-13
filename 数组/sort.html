@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let users = [
+        { name: "王五", age: 20 },
+        { name: "张三", age: 18 },
+        { name: "田七", age: 22 },
+        { name: "李四", age: 19 },
+        { name: "88", age: 18 },
+        { name: "王五", age: 81 },
+        { name: "赵六", age: 21 },
+      ];
+
+      // 排序算法的本质：比大小
+
+      // sort 从小到大排列
+      // sort的回调函数，指定了元素比较大小的规则
+      // 如果callback返回负数，则表示  第一个参数 < 第二个参数
+      // 如果callback返回正数，则表示，第一个参数 > 第二个参数
+
+      let result = users.sort((u1, u2) => u1.age - u2.age) // .reverse()
+      console.log(result)
+
+    </script>
+  </body>
+</html>

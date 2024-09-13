@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      面向对象语言创建对象的两种形式：
+          1. 通过类创建对象 - 
+          2. 通过克隆创建对象 -
+          
+      如果 B 是通过 A 创建出来的对象, 那么 A 叫做 B 的原型
+
+      JS中，最初的原型是：Object.prototype
+      Object.prototype 的原型是 null
+
+      Object
+  
+   */
+
+    let A = { x: 1 }
+
+    let B = Object.create(A)
+
+    console.log(A)
+    console.log(B)
+
+    // JS 获取原型的方法
+    let B的原型 = Object.getPrototypeOf(B) // 这种方式获取原型是在任何地方可以用的
+    console.log(B的原型)
+    console.log(B的原型 === A)
+    console.log(B的原型 === B.__proto__)
+
+    // 在某些浏览器中，为了调试方便，将对象的 __proto__ 属性设置为原型对象
+    
+
+  </script>
+</body>
+</html>

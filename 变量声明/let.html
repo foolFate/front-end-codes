@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // a = 3 // 没有访问权限
+        // 暂时性死区（Temporal Dead Zone，简称TDZ）是指在 JavaScript 中使用 let 或 const 声明变量时，
+        // 变量在其声明之前不能被访问或使用的特性。
+        // 在 JavaScript 中，变量声明提升是指在执行代码之前，变量声明会被提升到作用域的顶部。
+        // 然而，使用 let 或 const 声明的变量会受到暂时性死区的限制。
+
+        let a = 5
+        console.log(window)
+
+        {
+
+
+            let b = 123
+            console.log("里面", b)
+        }
+        // console.log(b) // not define
+
+        for(let i; i<10; i++) {}
+        console.log(i)
+
+    </script>
+</body>
+</html>

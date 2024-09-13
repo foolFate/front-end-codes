@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      JS 的 this 指向一个对象
+      但是这个对象是在运行时可能动态改变的
+      一般在函数中才访问得到 this (箭头函数除外)
+
+      当通过对象调用函数时，此时的函数可称为方法
+
+      调用函数有几种方式呢？(排除with和eval等不常见的语法)
+          1. 直接调用
+          2. 作为对象的方法调用
+          3. 通过 new 调用
+          4. 通过 Function.prototype.call 调用
+          5. 通过 Function.prototype.apply 调用
+    */
+
+
+    function fun() {
+      console.log("this:", this)
+    }
+
+    let obj = {f: fun}
+    // obj.f = fun
+
+    fun() // 直接调用
+    obj.f() // 作为对象的方法调用
+
+    let x = new fun;
+
+    fun.call()
+
+  </script>
+</body>
+</html>
+
