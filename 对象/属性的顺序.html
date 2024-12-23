@@ -19,7 +19,15 @@
     }
 
     // js中，对象属性的顺序是不可信的(它内部存储有一定顺序，但不可用)
-    for (const i in obj) {
+
+    // 如果需要字符串的固定顺序(字典序)，则需要经过处理
+    let entries = Object.entries(obj)
+    entries.sort((param1, param2) => {
+      return param1[0] > param2[0] ? 1 : -1
+    })
+    console.log(entries)
+
+    for (const i of entries) {
       console.log(i)
     }
 
