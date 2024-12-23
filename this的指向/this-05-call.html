@@ -14,7 +14,7 @@
     let obj1 = {name: "张三"}
     let obj2 = {name: "李四"}
 
-    fun.call(obj1, 123, 'aaa')  // {name: '张三'} 调用call()方法 临时绑定需要的对象 此时 的this 为 call的第一个参数
+    fun.call(obj1, 123, 'aaa')  // 此时this 为 {name: '张三'} 调用call()方法 临时绑定需要的对象 此时 的this 为 call的第一个参数
     fun.call(obj2, 456, 'bbb')  // {name: "李四"}
 
     fun()  // window  之后直接调用fun函数 此时的this 为 window
