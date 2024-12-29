@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     let arr = [0, 1, 2, 3];
@@ -20,7 +22,19 @@
     arr.splice(1, 1, 666)
 
     console.log(arr)
-    
+
+    //  push('xx') 添加元素到数组末尾 返回新数组长度 
+    //  pop('xx')  从数组中删除最后一个元素 返回删除的元素值
+
+    //  splice(start, deleteCount, item1, item2...) 就地移除或替换已存在的元素和/或添加新的元素
+    //  start 数组索引  deleteCount 需要删除的位数(0为不删除) item 添加或替换的数组元素
+
+    //  shift() 删除数组第一个元素  返回删除的元素值
+    //  unshift(item1, item2...) 将指定元素添加的数组开头 返回新数组长度
+    //  sort() 数组排序
+    //  reverse() 将数组元素反转 返回反转数组引用
+
   </script>
 </body>
+
 </html>
