@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <ul id="todos">
+    </ul>
+  </div>
+
+  <script>
+    let todos = [
+      { id: 1, title: '学Vue' },
+      { id: 2, title: '学React' },
+      { id: 3, title: '学Angular' },
+    ];
+
+    let todosDom = document.getElementById('todos')
+    for (let i = 0; i < todos.length; i++) {
+      let item = document.createElement('li')
+      // item.index = i
+
+      // item.addEventListener('click', function () {
+      //   console.log("点击了", todos[i])
+      // })
+
+      item.innerHTML = todos[i].title
+      todosDom.appendChild(item)
+    }
+
+    todosDom.addEventListener('click', function (event) {
+      console.log("click...", event.target === this)
+      if (this !== event.target) {
+        let index = [...todosDom.children].findIndex(e => e === event.target)
+        if (index !== -1) {
+          console.log(todos[index])
+        }
+        // console.log(todos[event.target.index])
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>
