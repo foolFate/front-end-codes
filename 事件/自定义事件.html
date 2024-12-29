@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input id="input" type="text">
+  <br>
+  <button id="btn">按钮</button>
+
+  <script>
+    let btn = document.getElementById('btn')
+    let input = document.getElementById('input')
+
+    function emitQiQiQi() {
+      input.dispatchEvent(new CustomEvent("qiqiqi", { detail: { value: input.value } }))
+    }
+
+    btn.addEventListener('click', function () {
+      console.log("鼠标点击")
+      triggerQiQiQi()
+    })
+
+    input.addEventListener('input', () => emitQiQiQi())
+
+    input.addEventListener('qiqiqi', function (event) {
+      console.log("输入框触发了 qiqiqi 事件", event.detail)
+    })
+
+
+  </script>
+</body>
+
+</html>

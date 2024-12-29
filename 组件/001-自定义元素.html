@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <qi-qi>
+    <h1>你好</h1>
+
+    <div class="box" slot="no">
+      <h1>你不好</h1>
+    </div>
+
+  </qi-qi>
+
+  <script>
+
+    class QiElement extends HTMLElement {
+
+      static observedAttributes = ["x"]
+
+      // 在属性更改、添加、移除、替换时调用
+      // 参数按顺序分别为：发生变化的属性名称, 属性旧值，属性新值
+      attributeChangedCallback(name, oldValue, newValue) {
+        console.log(name, oldValue, newValue)
+      }
+
+      constructor() {
+        // 调用super以便建立正确的原型链，后续在 constructor 才能正常使用 this
+        super()
+        // 创建影子DOM 
+        this.attachShadow({ mode: "open" })
+      }
+
+      // 自定义元素添加到文档中了
+      connectedCallback() {
+        console.log("connectedCallback")
+        this.render()
+      }
+
+      // 自定义元素从文档中移除
+      disconnectedCallback() {
+        console.log("disconnectedCallback")
+      }
+
+      // 自定义元素移动到新页面
+      adoptedCallback() {
+        console.log("adoptedCallback")
+      }
+
+
+      /// .........................
+
+      // 自己定义的一个方法，无特殊意义
+      render() {
+        this.shadowRoot.innerHTML = /*html*/`
+          <div class="box">
+            <slot></slot>
+          </div>
+          <div class="box">
+            <slot name="no"></slot>
+          </div>
+          <style>
+            .box {
+              width: 100px;
+              height: 100px;
+              border: 1px solid red;
+            }
+            ::slotted([slot="no"].box) {
+              color: green;
+            }
+            :host {
+              background-color: skyblue;
+              padding: 10px;
+              width: 200px;
+              height: 500px;
+              display: block;
+            }
+          </style>
+        `
+      }
+    }
+
+    window.customElements.define('qi-qi', QiElement)
+
+
+  </script>
+
+</body>
+
+</html>
