@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #id1 {
+      border: 2px solid red;
+      width: 100px;
+      height: 100px;
+      display: grid;
+      place-items: center center;
+      margin: 200px auto;
+    }
+
+    #id2 {
+      border: 1px solid green;
+      width: 50px;
+      height: 50px;
+    }
+
+    body {
+      background-color: aqua;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    html {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="id1">
+    <div id="id2">小div</div>
+  </div>
+
+  <script>
+    let id1Dom = document.querySelector("#id1")
+    let id2Dom = document.querySelector("#id2")
+
+    id1Dom.addEventListener('click', handleClick1, true) // 第三个参数传boolean true为把事件改为捕获机制 默认为false(冒泡)
+    id2Dom.addEventListener('click', handleClick2)
+
+    function handleClick1(e) {
+      console.log('调用大div')
+    }
+
+    function handleClick2(e) {
+      // e.stopPropagation();  // 阻止事件冒泡
+      console.log('调用小div')
+      console.log(e.composedPath()) // 打印事件路径(事件捕获或冒泡顺序)
+    }
+  </script>
+</body>
+
+</html>
